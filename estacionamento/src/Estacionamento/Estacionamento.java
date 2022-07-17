@@ -19,6 +19,7 @@ public class Estacionamento {
 	int numeroAcessos;
 	float valorApurado;
 	String nomeEstacionamento;
+	
 
 	public Estacionamento(float valorFracao, float valorHoraCheia, float valorDiariaDiurna, float valorDiariaNoturna,
 			float valorMensalidade, float valorEvento, String inicioFuncionamento, String fimFuncionamento,
@@ -57,12 +58,41 @@ public class Estacionamento {
 		this.valorHoraCheia = valorHoraCheia;
 	}
 
+	public Estacionamento(float valorFracao, float valorHoraCheia, float valorDiariaDiurna, float valorDiariaNoturna,
+			float valorMensalidade, float valorEvento, String inicioHoraNoturna, String fimHoraNoturna, int capacidade,
+			float retornoContratante, String nomeEstacionamento) {
+		this.valorFracao = valorFracao;
+		this.valorHoraCheia = valorHoraCheia;
+		this.valorDiariaDiurna = valorDiariaDiurna;
+		this.valorDiariaNoturna = valorDiariaNoturna;
+		this.valorMensalidade = valorMensalidade;
+		this.valorEvento = valorEvento;
+		this.inicioHoraNoturna = inicioHoraNoturna;
+		this.fimHoraNoturna = fimHoraNoturna;
+		this.capacidade = capacidade;
+		this.retornoContratante = retornoContratante;
+		this.nomeEstacionamento = nomeEstacionamento;
+	}
+
+
+	public Estacionamento(float valorFracao, float valorHoraCheia, String nomeEstacionamento) {
+		super();
+		this.valorFracao = valorFracao;
+		this.valorHoraCheia = valorHoraCheia;
+		this.nomeEstacionamento = nomeEstacionamento;
+	}
 	public float calcularContratante(ArrayList<Acesso> listaAcessos) {
 		float total = 0;
 		for (Acesso acesso : listaAcessos) {
 			total = total + (acesso.calculaAcesso() * retornoContratante);
 		}
 		return total;
+	}
+	
+	public int calculaAcesso(String estacionamentoParaAcessso, String entrada, String saida) {
+
+		return 100;
+
 	}
 
 }
