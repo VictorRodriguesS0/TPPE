@@ -88,11 +88,5 @@ public class Estacionamento {
 		}
 		return total;
 	}
-	
-	public int calculaAcesso(String estacionamentoParaAcessso, String entrada, String saida) {
-
-		return 100;
-
-	}
 
 }
