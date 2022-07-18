@@ -24,7 +24,7 @@ public class ValorContratanteTeste {
 		
 		Acesso acessoEvento = new Acesso("HI139", "16-07-2022 21:36:00", "17-07-2022 06:12:00", estacionamento, "evento");
 		Acesso acessoDiariaDiurna = new Acesso("HI138", "16-07-2022 08:00:00", "17-07-2022 18:00:00", estacionamento, null);
-		Acesso acessoFracoes = new Acesso("HI137", "16-07-2022 08:00:00", "17-07-2022 08:45:00", estacionamento, null);
+		Acesso acessoFracoes = new Acesso("HI137", "16-07-2022 08:00:00", "16-07-2022 08:45:00", estacionamento, null);
 		acessos.add(acessoEvento);
 		acessos.add(acessoDiariaDiurna);
 		acessos.add(acessoFracoes);
@@ -34,7 +34,7 @@ public class ValorContratanteTeste {
 	@Test
 	public void calculaValorContratante() {
 		 float calcula = estacionamento.calcularContratante(acessos);
-		 assertEquals(114, calcula, 0f);
+		 assertEquals(108, calcula, 0f);
 
 	}
 
