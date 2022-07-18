@@ -10,6 +10,8 @@ DUPLA
 
 ## Tecnologia Utilizada
 
-Linguagem: Java 17
-Framework de Testes: JUnit 4
-IDE: Eclipse
+- Linguagem: Java 17
+
+- Framework de Testes: JUnit 4
+
+- IDE: Eclipse
