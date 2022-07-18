@@ -5,7 +5,7 @@ DUPLA
 
 | Matricula  | Nome                   |
 |------------|------------------------|
-|            | Francisco Heronildo    |
+| 16/0006210 | Francisco Heronildo    |
 | 16/0019516 | Victor Rodrigues Silva |
 
 ## Tecnologia Utilizada
