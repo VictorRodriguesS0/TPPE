@@ -14,6 +14,7 @@ public class ValorContratanteTeste {
 	
 	Estacionamento estacionamento, estacionamento2, estacionamento3;
 	ArrayList<Acesso> acessos = new ArrayList();
+	ArrayList<Acesso> acessos2 = new ArrayList();
 	
 	
 
@@ -29,12 +30,30 @@ public class ValorContratanteTeste {
 		acessos.add(acessoDiariaDiurna);
 		acessos.add(acessoFracoes);
 		
+		
+		estacionamento2 = new Estacionamento("Estacionamento2", 30.0f, 0.15f, 120.0f, 0.45f, "16-07-2022 19:00:00",
+				"17-07-2022 08:00:00", 600f, 50f, 0.50f);
+		
+		Acesso acessoEvento2 = new Acesso("HI139", "16-07-2022 09:00:00", "17-07-2022 10:00:00", estacionamento2, "evento");
+		Acesso acessoDiariaDiurna2 = new Acesso("HI138", "16-07-2022 08:00:00", "17-07-2022 18:00:00", estacionamento2, null);
+		Acesso acessoFracoes2 = new Acesso("HI137", "16-07-2022 08:00:00", "16-07-2022 08:45:00", estacionamento2, null);
+		acessos2.add(acessoEvento2);
+		acessos2.add(acessoDiariaDiurna2);
+		acessos2.add(acessoFracoes2);
+		
 	}
 
 	@Test
 	public void calculaValorContratante() {
 		 float calcula = estacionamento.calcularContratante(acessos);
 		 assertEquals(108, calcula, 0f);
+
+	}
+	
+	@Test
+	public void calculaValorContratanteDuplicada() {
+		 float calcula = estacionamento2.calcularContratante(acessos2);
+		 assertEquals(130, calcula, 0f);
 
 	}
 
