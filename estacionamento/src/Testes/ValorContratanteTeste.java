@@ -10,6 +10,7 @@ import org.junit.experimental.categories.Category;
 
 import Estacionamento.Acesso;
 import Estacionamento.Estacionamento;
+import Exceptions.DescricaoEmBrancoException;
 
 @Category(TesteFuncional.class)
 public class ValorContratanteTeste {
@@ -20,7 +21,7 @@ public class ValorContratanteTeste {
 	ArrayList<Acesso> acessos3 = new ArrayList();
 
 	@Before
-	public void setup() {
+	public void setup() throws DescricaoEmBrancoException {
 		estacionamento = new Estacionamento("Estacionamento1", 20.0f, 0.10f, 70.0f, 0.30f, "16-07-2022 21:00:00",
 				"17-07-2022 07:00:00", 600f, 50f, 0.60f);
 

@@ -2,6 +2,8 @@ package Estacionamento;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import Exceptions.DescricaoEmBrancoException;
+
 import static java.time.temporal.ChronoUnit.MINUTES;
 
 public class Acesso {
@@ -11,8 +13,18 @@ public class Acesso {
 	Estacionamento estacionamento;
 	String tipoAcesso;
 	
-	public Acesso(String placa, String horaEntrada, String horaSaida, Estacionamento estacionamento, String tipoAcesso) {
-		super();
+	public Acesso(String placa, String horaEntrada, String horaSaida, Estacionamento estacionamento, String tipoAcesso) throws DescricaoEmBrancoException{
+		if (placa == null || placa.equals("")) {
+			throw new DescricaoEmBrancoException("Dados da placa invalido");
+		}
+		if (horaEntrada == null || horaEntrada.equals("")) {
+			throw new DescricaoEmBrancoException("Dados da hora de entrada invalidos");
+
+		}
+		if (horaSaida == null || horaSaida.equals("")) {
+			throw new DescricaoEmBrancoException("Dados da hora de saída invalidos");
+
+		}
 		this.placa = placa;
 		this.horaEntrada = horaEntrada;
 		this.horaSaida = horaSaida;
@@ -21,6 +33,7 @@ public class Acesso {
 	}
 	
 	public float calculaAcesso() {
+		
 		if (tipoAcesso == "evento") {
 			return estacionamento.valorEvento;
 		}
