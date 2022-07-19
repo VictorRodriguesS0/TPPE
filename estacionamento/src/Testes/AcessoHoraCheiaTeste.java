@@ -2,50 +2,59 @@ package Testes;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import Estacionamento.Acesso;
 import Estacionamento.Estacionamento;
 
+@RunWith(Parameterized.class)
 public class AcessoHoraCheiaTeste {
 
 	Estacionamento estacionamento;
-	Acesso acesso;
+	Acesso acesso, acessoteste;
 	Acesso acesso2;
 	Acesso acesso3;
 	private String tipoAcesso;
-	
+	private String placa;
+	private String horaEntrada;
+	private String horaSaida;
+	float valorTotal;
+
 	@Before
 	public void setup() {
 		estacionamento = new Estacionamento("Estacionamento2", 20.0f, 0.10f, 70.0f, 0.30f, "16-07-2022 21:00:00",
 				"16-07-2022 07:00:00");
-		acesso = new Acesso("HI139", "16-07-2022 08:30:00", "16-07-2022 09:30:00", estacionamento, tipoAcesso);
-		acesso2 = new Acesso("HI138", "16-07-2022 08:00:00", "16-07-2022 10:00:00", estacionamento, tipoAcesso);
-		acesso3 = new Acesso("HI137", "16-07-2022 08:00:00", "16-07-2022 11:00:00", estacionamento, tipoAcesso);
-		
+		acessoteste = new Acesso(placa, horaEntrada, horaSaida, estacionamento, tipoAcesso);
+
 	}
-	
+
+	public AcessoHoraCheiaTeste(String placa, String horaEntrada, String horaSaida, float valorTotal) {
+		this.placa = placa;
+		this.horaEntrada = horaEntrada;
+		this.horaSaida = horaSaida;
+		this.valorTotal = valorTotal;
+	}
+
+	@Parameters
+	public static Iterable<Object[]> getParameters() {
+		Object[][] respostas = new Object[][] { { "HI139", "16-07-2022 08:30:00", "16-07-2022 09:30:00", 72f },
+				{ "HI139", "16-07-2022 15:12:00", "16-07-2022 16:12:00", 72f },
+				{ "HI139", "16-07-2022 21:36:00", "16-07-2022 06:12:00", 21f }, };
+
+		return Arrays.asList(respostas);
+	}
+
 	@Test
 	public void calculaValorAcessoHoraCheia() {
-		float calcula = acesso.calculaAcesso();
-		assertEquals(72, calcula, 0f);
+		float calculo = acessoteste.calculaAcesso();
+		assertEquals(valorTotal, calculo, 0f);
 
 	}
-	
-	@Test
-	public void calculaValorAcessoHoraCheiaDuplicada() {
-		float calcula = acesso2.calculaAcesso();
-		assertEquals(144, calcula, 0f);
-
-	}
-	
-	@Test
-	public void calculaValorAcessoHoraCheiaTriplicada() {
-		float calcula = acesso3.calculaAcesso();
-		assertEquals(216, calcula, 0f);
-
-	}
-
 
 }
