@@ -14,6 +14,7 @@ import org.junit.runners.Parameterized.Parameters;
 import Estacionamento.Acesso;
 import Estacionamento.Estacionamento;
 import Exceptions.DescricaoEmBrancoException;
+import Exceptions.ValorAcessoInvalidoException;
 
 @Category(TesteFuncional.class)
 @RunWith(Parameterized.class)
@@ -30,7 +31,7 @@ public class AcessoHoraCheiaTeste {
 	float valorTotal;
 
 	@Before
-	public void setup() throws DescricaoEmBrancoException {
+	public void setup() throws DescricaoEmBrancoException, ValorAcessoInvalidoException {
 		estacionamento = new Estacionamento("Estacionamento2", 20.0f, 0.10f, 70.0f, 0.30f, "16-07-2022 21:00:00",
 				"16-07-2022 07:00:00");
 		acessoteste = new Acesso(placa, horaEntrada, horaSaida, estacionamento, tipoAcesso);

@@ -3,6 +3,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import Exceptions.DescricaoEmBrancoException;
+import Exceptions.ValorAcessoInvalidoException;
 
 import static java.time.temporal.ChronoUnit.MINUTES;
 
@@ -13,7 +14,7 @@ public class Acesso {
 	Estacionamento estacionamento;
 	String tipoAcesso;
 	
-	public Acesso(String placa, String horaEntrada, String horaSaida, Estacionamento estacionamento, String tipoAcesso) throws DescricaoEmBrancoException{
+	public Acesso(String placa, String horaEntrada, String horaSaida, Estacionamento estacionamento, String tipoAcesso) throws DescricaoEmBrancoException, ValorAcessoInvalidoException {
 		if (placa == null || placa.equals("")) {
 			throw new DescricaoEmBrancoException("Dados da placa invalido");
 		}
@@ -25,6 +26,8 @@ public class Acesso {
 			throw new DescricaoEmBrancoException("Dados da hora de saída invalidos");
 
 		}
+		
+		
 		this.placa = placa;
 		this.horaEntrada = horaEntrada;
 		this.horaSaida = horaSaida;

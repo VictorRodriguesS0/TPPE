@@ -2,6 +2,8 @@ package Estacionamento;
 
 import java.util.ArrayList;
 
+import Exceptions.ValorAcessoInvalidoException;
+
 public class Estacionamento {
 
 	float valorFracao;
@@ -23,8 +25,18 @@ public class Estacionamento {
 	public Estacionamento(float valorFracao, float valorHoraCheia, float valorDiariaDiurna, float valorDiariaNoturna,
 			float valorMensalidade, float valorEvento, String inicioFuncionamento, String fimFuncionamento,
 			int capacidade, float retornoContratante, int numeroAcessos, float valorApurado,
-			String nomeEstacionamento) {
-		super();
+			String nomeEstacionamento) throws ValorAcessoInvalidoException {
+		
+		if(valorFracao < 0) {
+			throw new ValorAcessoInvalidoException("Valor de fração inválido");
+		}
+		if(valorHoraCheia < 0) {
+			throw new ValorAcessoInvalidoException("Valor de Hora Cheia inválido");
+		}
+		if(valorDiariaDiurna < 0) {
+			throw new ValorAcessoInvalidoException("Valor de diária diurna inválido");
+		}
+		
 		this.valorFracao = valorFracao;
 		this.valorHoraCheia = valorHoraCheia;
 		this.valorDiariaDiurna = valorDiariaDiurna;
@@ -41,7 +53,7 @@ public class Estacionamento {
 	}
 
 	public Estacionamento(String nomeEstacionamento, float valorFracao, float valorHoraCheia, float valorDiariaDiurna,
-			float porcentagemDiariaNoturna, String inicioHoraNoturna, String fimHoraNoturna) {
+			float porcentagemDiariaNoturna, String inicioHoraNoturna, String fimHoraNoturna) throws ValorAcessoInvalidoException {
 		this.nomeEstacionamento = nomeEstacionamento;
 		this.valorFracao = valorFracao;
 		this.valorHoraCheia = valorHoraCheia;
@@ -49,17 +61,32 @@ public class Estacionamento {
 		this.valorDiariaNoturna = porcentagemDiariaNoturna;
 		this.inicioHoraNoturna = inicioHoraNoturna;
 		this.fimHoraNoturna = fimHoraNoturna;
+		if(valorFracao < 0) {
+			throw new ValorAcessoInvalidoException("Valor de fração inválido");
+		}
+		if(valorHoraCheia < 0) {
+			throw new ValorAcessoInvalidoException("Valor de Hora Cheia inválido");
+		}
+		if(valorDiariaDiurna < 0) {
+			throw new ValorAcessoInvalidoException("Valor de diária diurna inválido");
+		}
 	}
 
-	public Estacionamento(String nomeEstacionamento, float valorFracao, float valorHoraCheia) {
+	public Estacionamento(String nomeEstacionamento, float valorFracao, float valorHoraCheia) throws ValorAcessoInvalidoException {
 		this.nomeEstacionamento = nomeEstacionamento;
 		this.valorFracao = valorFracao;
 		this.valorHoraCheia = valorHoraCheia;
+		if(valorFracao < 0) {
+			throw new ValorAcessoInvalidoException("Valor de fração inválido");
+		}
+		if(valorHoraCheia < 0) {
+			throw new ValorAcessoInvalidoException("Valor de Hora Cheia inválido");
+		}
 	}
 
 	public Estacionamento(float valorFracao, float valorHoraCheia, float valorDiariaDiurna, float valorDiariaNoturna,
 			float valorMensalidade, float valorEvento, String inicioHoraNoturna, String fimHoraNoturna, int capacidade,
-			float retornoContratante, String nomeEstacionamento) {
+			float retornoContratante, String nomeEstacionamento) throws ValorAcessoInvalidoException {
 		this.valorFracao = valorFracao;
 		this.valorHoraCheia = valorHoraCheia;
 		this.valorDiariaDiurna = valorDiariaDiurna;
@@ -71,18 +98,33 @@ public class Estacionamento {
 		this.capacidade = capacidade;
 		this.retornoContratante = retornoContratante;
 		this.nomeEstacionamento = nomeEstacionamento;
+		if(valorFracao < 0) {
+			throw new ValorAcessoInvalidoException("Valor de fração inválido");
+		}
+		if(valorHoraCheia < 0) {
+			throw new ValorAcessoInvalidoException("Valor de Hora Cheia inválido");
+		}
+		if(valorDiariaDiurna < 0) {
+			throw new ValorAcessoInvalidoException("Valor de diária diurna inválido");
+		}
 	}
 
-	public Estacionamento(float valorFracao, float valorHoraCheia, String nomeEstacionamento) {
+	public Estacionamento(float valorFracao, float valorHoraCheia, String nomeEstacionamento) throws ValorAcessoInvalidoException {
 		super();
 		this.valorFracao = valorFracao;
 		this.valorHoraCheia = valorHoraCheia;
 		this.nomeEstacionamento = nomeEstacionamento;
+		if(valorFracao < 0) {
+			throw new ValorAcessoInvalidoException("Valor de fração inválido");
+		}
+		if(valorHoraCheia < 0) {
+			throw new ValorAcessoInvalidoException("Valor de Hora Cheia inválido");
+		}
 	}
 
 	public Estacionamento(String nomeEstacionamento, float valorFracao, float valorHoraCheia, float valorDiariaDiurna,
 			float valorDiariaNoturna, String inicioHoraNoturna, String fimHoraNoturna, float valorMensalidade,
-			float valorEvento, float retornoContratante) {
+			float valorEvento, float retornoContratante) throws ValorAcessoInvalidoException {
 		super();
 		this.valorFracao = valorFracao;
 		this.valorHoraCheia = valorHoraCheia;
@@ -94,6 +136,15 @@ public class Estacionamento {
 		this.fimHoraNoturna = fimHoraNoturna;
 		this.retornoContratante = retornoContratante;
 		this.nomeEstacionamento = nomeEstacionamento;
+		if(valorFracao < 0) {
+			throw new ValorAcessoInvalidoException("Valor de fração inválido");
+		}
+		if(valorHoraCheia < 0) {
+			throw new ValorAcessoInvalidoException("Valor de Hora Cheia inválido");
+		}
+		if(valorDiariaDiurna < 0) {
+			throw new ValorAcessoInvalidoException("Valor de diária diurna inválido");
+		}
 	}
 
 	public float calcularContratante(ArrayList<Acesso> listaAcessos) {
