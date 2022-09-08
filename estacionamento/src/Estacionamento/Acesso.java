@@ -1,11 +1,7 @@
 package Estacionamento;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import Exceptions.DescricaoEmBrancoException;
 import Exceptions.ValorAcessoInvalidoException;
-
-import static java.time.temporal.ChronoUnit.MINUTES;
 
 public class Acesso {
 	String placa;
@@ -13,12 +9,6 @@ public class Acesso {
 	String horaSaida;
 	Estacionamento estacionamento;
 	String tipoAcesso;
-
-	private static final DateTimeFormatter FORMATTIME = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-	private static final float FRACAO15MINUTOS = 15f;
-	private static final int FRACOES1HORA = 4;
-	private static final int FRACOES9HORA = 36;
-
 	
 	public Acesso(String placa, String horaEntrada, String horaSaida, Estacionamento estacionamento, String tipoAcesso) throws DescricaoEmBrancoException, ValorAcessoInvalidoException {
 		validatePlaca(placa);
@@ -61,26 +51,10 @@ public class Acesso {
 			return estacionamento.valorMensalidade;
 		}
 		else {
+			
+			CalcularAcesso calcula = new CalcularAcesso(this.horaEntrada, this.horaSaida);
+			return calcula.calculaAcesso(this.estacionamento);
 
-			LocalDateTime horaEntradaFormat = LocalDateTime.parse(this.horaEntrada, FORMATTIME);
-			LocalDateTime horaSaidaFormat = LocalDateTime.parse(this.horaSaida, FORMATTIME);
-			LocalDateTime inicioHoraNoturnaFormat = LocalDateTime.parse(this.estacionamento.inicioHoraNoturna, FORMATTIME);
-			
-			float tempoPermanencia = horaEntradaFormat.until(horaSaidaFormat, MINUTES);
-			int qtdFracoes = (int) Math.ceil(tempoPermanencia/FRACAO15MINUTOS);
-			
-			if(horaEntradaFormat.until(inicioHoraNoturnaFormat, MINUTES) <= 0) {
-				return this.estacionamento.valorDiariaNoturna * this.estacionamento.valorDiariaDiurna;
-			}
-			else if (qtdFracoes < FRACOES1HORA) {
-				return this.estacionamento.valorFracao * qtdFracoes;
-			}
-			else if (qtdFracoes >= FRACOES1HORA && qtdFracoes <= FRACOES9HORA) {
-				return (this.estacionamento.valorFracao * qtdFracoes) * (1 - this.estacionamento.valorHoraCheia);
-			}
-			else {
-				return this.estacionamento.valorDiariaDiurna;
-			}
 		}
 	}
 }
