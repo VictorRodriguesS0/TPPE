@@ -9,12 +9,13 @@ public class Acesso {
 	String horaSaida;
 	Estacionamento estacionamento;
 	String tipoAcesso;
-	
-	public Acesso(String placa, String horaEntrada, String horaSaida, Estacionamento estacionamento, String tipoAcesso) throws DescricaoEmBrancoException, ValorAcessoInvalidoException {
+
+	public Acesso(String placa, String horaEntrada, String horaSaida, Estacionamento estacionamento, String tipoAcesso)
+			throws DescricaoEmBrancoException, ValorAcessoInvalidoException {
 		validatePlaca(placa);
 		validateEntrada(horaEntrada);
 		validateSaida(horaSaida);
-		
+
 		this.placa = placa;
 		this.horaEntrada = horaEntrada;
 		this.horaSaida = horaSaida;
@@ -41,17 +42,16 @@ public class Acesso {
 			throw new DescricaoEmBrancoException("Dados da placa invalido");
 		}
 	}
-	
+
 	public float calculaAcesso() {
-		// Função que retorna o valor do estacionamento refente ao tipo de acesso realizado
+		// Função que retorna o valor do estacionamento refente ao tipo de acesso
+		// realizado
 		if (tipoAcesso == "evento") {
 			return estacionamento.valorEvento;
-		}
-		else if(tipoAcesso == "mensalista") {
+		} else if (tipoAcesso == "mensalista") {
 			return estacionamento.valorMensalidade;
-		}
-		else {
-			
+		} else {
+
 			CalcularAcesso calcula = new CalcularAcesso(this.horaEntrada, this.horaSaida);
 			return calcula.calculaAcesso(this.estacionamento);
 
