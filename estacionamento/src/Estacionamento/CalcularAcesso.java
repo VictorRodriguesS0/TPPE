@@ -27,6 +27,7 @@ public class CalcularAcesso {
 	}
 	
 	public float calculaAcesso(Estacionamento estacionamento) {
+		// Função que calcula o valor de acesso e permanência dos veiculos no estacionamento
 		
 		LocalDateTime inicioHoraNoturnaFormat = LocalDateTime.parse(estacionamento.inicioHoraNoturna, FORMATTERTIME);
 		

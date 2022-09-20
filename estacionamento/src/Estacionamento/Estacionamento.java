@@ -146,8 +146,9 @@ public class Estacionamento {
 			throw new ValorAcessoInvalidoException("Valor de diária diurna inválido");
 		}
 	}
-
+	
 	public float calcularContratante(ArrayList<Acesso> listaAcessos) {
+		// Função que calcula o valor apurado pelo contratante
 		float total = 0;
 		for (Acesso acesso : listaAcessos) {
 			total = total + (acesso.calculaAcesso() * retornoContratante);

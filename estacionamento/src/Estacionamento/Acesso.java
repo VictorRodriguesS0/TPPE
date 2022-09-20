@@ -43,7 +43,7 @@ public class Acesso {
 	}
 	
 	public float calculaAcesso() {
-		
+		// Função que retorna o valor do estacionamento refente ao tipo de acesso realizado
 		if (tipoAcesso == "evento") {
 			return estacionamento.valorEvento;
 		}
