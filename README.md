@@ -1,6 +1,8 @@
 # TPPE
 
 ## Trabalho Prático 1 - _Test-Driven Development_
+## Trabalho Prático 2 - _Refactoring_
+
 
 ### Alunos
 
