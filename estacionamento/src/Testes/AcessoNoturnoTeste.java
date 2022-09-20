@@ -45,11 +45,9 @@ public class AcessoNoturnoTeste {
 
 	@Parameters
 	public static Iterable<Object[]> getParameters() {
-		Object[][] respostas = new Object[][] { 
-			{ "HI139", "16-07-2022 21:36:00", "17-07-2022 06:12:00", 21f },
-			{ "HI138", "16-07-2022 21:00:00", "16-07-2022 22:00:00", 21f },
-			{ "HI137", "16-07-2022 22:00:00", "16-07-2022 23:59:00", 21f }, 
-			};
+		Object[][] respostas = new Object[][] { { "HI139", "16-07-2022 21:36:00", "17-07-2022 06:12:00", 21f },
+				{ "HI138", "16-07-2022 21:00:00", "16-07-2022 22:00:00", 21f },
+				{ "HI137", "16-07-2022 22:00:00", "16-07-2022 23:59:00", 21f }, };
 
 		return Arrays.asList(respostas);
 	}
