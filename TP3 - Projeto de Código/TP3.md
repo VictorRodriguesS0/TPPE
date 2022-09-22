@@ -86,4 +86,20 @@ Um software bem desenvolvido não possui duplicidade em seu código. A duplicida
 
 ### Descrição
 
+Um projeto de código bem documentado é fundamental para legibilidade do código, inferindo também na simplicidade e elegância do código. O leitor do código nunca deve ter que "adivinhar" o que certo trecho de código faz.
+
+O código em si é a maneira mais completa e correta de descrever seu código, mas, isso não significa que ele possui a melhor descrição possível do que ele faz, por isso que a boa documentação, como por exemplo comentário de código são importantes, por que muitas das vezes, aquelas é a única documentação que o desenvolvedor terá acesso em uma manutenção.
+
+O código auto documentado é altamente recomendado em um bom projeto de software, pois ele diminui a dependencia de documentação externa.
+
+Mas além do código auto documentado, os documentos externos também tem um papel importantissimo no desenvolvimento de software, mas nem toda informação sobre o projeto pode ser armazenado no código, como exemplo manuais técnicos, diagramas e etc.
+
 ### Maus-cheiros
+
+Uma boa documentação pode ajudar a reduzir o número de maus-cheiros de diversas maneiras como em casos com:
+
+- Códigos duplicados
+- Cadeias de mensagens
+- Comentários extensos
+- Campos temporários
+- Longas listas de parâmetros
