@@ -1,5 +1,8 @@
 # TP3 - Projeto de Código
 
+Victor Rodrigues Silva - 16/0019516
+Francisco Heronildo - 16/0006210
+
 ## Simplicidade
 
 ### Descrição
@@ -20,7 +23,7 @@ Um código simples é mais fácil de ler, compreender, escrever e ainda se torna
 
 ### Descrição
 
-A elegância se relaciona com os aspectos estéticos do design de código e quase sempre relacionada com a simplicidade. e facilidade de leitura daquele código,
+A elegância se relaciona com os aspectos estéticos do design de código e quase sempre relacionada com a simplicidade. e facilidade de leitura daquele código.
 
 ### Maus-cheiros
 
@@ -40,12 +43,6 @@ O baixo acoplamento garante maior idependencia entre os módulos, enquanto a alt
 - Hierarquias de heranças paralelas
 - Instruções switch
 - Generalização expeculativa
-
-## Boas interfaces
-
-### Descrição
-
-### Maus-cheiros
 
 ## Extensibilidade
 
@@ -69,18 +66,6 @@ Um software bem desenvolvido não possui duplicidade em seu código. A duplicida
 
 - Código duplicado
 - Extração de métodos
-
-## Portabilidade
-
-### Descrição
-
-### Maus-cheiros
-
-## "Idiomático" (idioma da linguagem) e,
-
-### Descrição
-
-### Maus-cheiros
 
 ## Boa documentação
 
